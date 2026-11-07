@@ -33,6 +33,128 @@
 }
 
 .selected {
-    background-color: yellow;
+    background-color: #38bdf8;
     color: black;
+}
+
+/* アプリ全体の背景 */
+body {
+    background-color: #10131c;
+    color: #f1f5f9;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 24px;
+}
+
+/* 選択した鍵盤の色 */
+/*.key.selected {
+    background-color: #38bdf8;
+    color: #0f172a;
+    box-shadow: 0 0 18px #38bdf8;
+}*/
+
+
+/* 鍵盤の基本デザイン */
+.key {
+    border-radius: 0 0 8px 8px;
+    cursor: pointer;
+    transition: background-color 0.15s,
+                box-shadow 0.15s,
+                transform 0.15s;
+}
+
+/* マウスを乗せたとき */
+/*.key:hover {
+    filter: brightness(0.9);
+}*/
+
+/* 白鍵を押している間 */
+.white:active {
+    box-shadow: inset 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+
+/* 黒鍵を押している間 */
+.black:active {
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.6);
+}
+
+
+/* 判定結果を囲むカード */
+.result-card {
+    background-color: #1b2333;
+    border: 1px solid #334155;
+    border-radius: 16px;
+    padding: 24px;
+    margin-top: 24px;
+    width: fit-content;
+    min-width: 240px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* カードの見出し */
+.result-label {
+    color: #94a3b8;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+/* コード判定結果 */
+#chord-result {
+    color: #7dd3fc;
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0;
+}
+
+
+.white {
+    color: #1e293b;
+}
+
+/* 通常時：白鍵に立体感をつける */
+.white {
+    box-shadow: 0 5px 0 #94a3b8;
+}
+
+.app-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+
+/* 鍵盤を横スクロールできる領域 */
+.piano-scroll {
+    width: 100%;
+    max-width: 1172px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: 12px 0 18px;
+    box-sizing: border-box;
+}
+
+/* スマホ画面向けの設定 */
+@media (max-width: 600px) {
+    body {
+        padding: 12px;
+    }
+
+    .white {
+        width: 56px;
+        height: 170px;
+        flex-shrink: 0;
+    }
+
+    .black {
+        width: 30px;
+        height: 100px;
+    }
+
+    .piano {
+        gap: 3px;
+    }
 }

@@ -9,12 +9,13 @@
 
 </head>
 <body>
-    <h1>ピアノコード学習アプリ</h1>
- 
 
+ <main class="app-container"> 
+
+<div class="piano-scroll">
 
 <div class="piano">
-    <div class="key white" id="key-c" data-note="C" data-octave="4">
+    <div class="key white" id="key-c4" data-note="C" data-octave="4">
         ド
         <div class="key black" data-note="C#" data-octave="4">ド#</div>
     </div>
@@ -38,7 +39,7 @@
     <div class="key white" data-note="B" data-octave="4">シ</div>
 
     
-    <div class="key white" id="key-c" data-note="C" data-octave="5">
+    <div class="key white" id="key-c5" data-note="C" data-octave="5">
         ド
         <div class="key black" data-note="C#" data-octave="5">ド#</div>
     </div>
@@ -62,7 +63,16 @@
     <div class="key white" data-note="B" data-octave="5">シ</div>
 </div>
 
-<p id="chord-result">コードを選択してください</p>
+</div>
+
+<div class="result-card">
+    <div class="result-label">DETECTED CHORD</div>
+    <p id="chord-result">コードを選択してください</p>
+</div>
+
+
+
+</main>  
 
 <script src="script.js"></script>
 </body>
