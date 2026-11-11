@@ -156,4 +156,44 @@ notes.forEach(function(note) {
 });
 
 
+const showChordButton = document.getElementById("show-chord");
+const reverseRoot = document.getElementById("reverse-root");
+const reverseType = document.getElementById("reverse-type");
+
+
+showChordButton.addEventListener("click", function() {
+    const root = reverseRoot.value;
+    const type = reverseType.value;
+
+    const chordNotes = makeChord(root, type);
+    console.log("構成音:", chordNotes);
+
+    // ルート音を4オクターブ目に配置
+    const rootPitch = 4 * 12 + notes.indexOf(root);
+
+    // コードの構成音までの音程
+    const intervals = chordPatterns[type].intervals;
+
+    // 鍵盤を1つずつ確認
+    keys.forEach(function(key) {
+        const note = key.dataset.note;
+        const octave = Number(key.dataset.octave);
+
+        const keyPitch = octave * 12 + notes.indexOf(note);
+
+        // ルート音から何半音離れているか
+        const distance = keyPitch - rootPitch;
+
+        // 構成音なら光らせる
+        const shouldSelect = intervals.includes(distance);
+
+        key.classList.toggle("selected", shouldSelect);
+    });
+
+    // コード名も更新
+    resultElement.textContent =
+        root + chordPatterns[type].label;
+});
+
+
 
